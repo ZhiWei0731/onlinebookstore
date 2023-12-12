@@ -50,7 +50,7 @@ public class StoreException extends IOException {
         return errorMessage;
     }
 
-    public void setErrorMessage(String errorMessage) {
+    public void setErrorMessage(String errorMessage) {  // not used in constructor
         this.errorMessage = errorMessage;
     }
 
@@ -62,4 +62,10 @@ public class StoreException extends IOException {
         this.statusCode = statusCode;
     }
 
+    @Override
+    public String toString() {
+        return "StoreException{errorCode='" + errorCode + '\'' +
+            ", errorMessage='" + errorMessage + '\'' +
+            ", statusCode=" + statusCode + "}";
+    }
 }
