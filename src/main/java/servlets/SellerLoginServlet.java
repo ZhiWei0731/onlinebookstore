@@ -29,7 +29,7 @@ public class SellerLoginServlet extends HttpServlet {
         
         try {
             if (user != null) {
-                System.out.println(user.toString() + "\n");
+                // System.out.println(user.toString() + "\n");
                 RequestDispatcher rd = req.getRequestDispatcher("SellerHome.html");
                 rd.include(req, res);
                 pw.println("    <div id=\"topmid\"><h1>Welcome to Online <br>Book Store</h1></div>\r\n"
