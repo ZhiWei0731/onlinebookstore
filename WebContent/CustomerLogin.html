@@ -154,10 +154,23 @@ input {
 			var theform = document.getElementById("theform");
 			var why = "";
 
+			if(theform.username.value == "") {
+				why += "- Please Enter Username.\n";
+				alert(why);
+				event.preventDefault();
+				return false;
+			}
+			if(theform.password.value == "") {
+				why += "- Please Enter Password.\n";
+				alert(why);
+				event.preventDefault();
+				return false;
+			}
+
 			if (theform.CaptchaInput.value == "") {
 				why += "- Please Enter CAPTCHA Code.\n";
 			}
-			if (theform.CaptchaInput.value != "") {
+			else if (theform.CaptchaInput.value != "") {
 				if (ValidCaptcha(theform.CaptchaInput.value) == false) {
 					why += "- The CAPTCHA Code Does Not Match.\n";
 				}

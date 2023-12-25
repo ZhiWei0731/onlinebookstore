@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean isLoggedIn(UserRole role, HttpSession session) {
+    public boolean isLoggedIn(UserRole role, HttpSession session) {  // not used? AboutServlet use StoreUtil.isLoggedIn
         if (role == null)
             role = UserRole.CUSTOMER;
         return session.getAttribute(role.toString()) != null;

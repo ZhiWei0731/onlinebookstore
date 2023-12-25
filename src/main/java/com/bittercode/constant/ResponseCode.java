@@ -39,4 +39,11 @@ public enum ResponseCode {
                 .filter(error -> error.getCode() == statusCode)
                 .findFirst();
     }
+    
+    @Override
+    public String toString() {
+        return "ResponseCode{type='" + this.name()+ '\'' 
+                + ", message='" + message + '\'' 
+                + ", code=" + code + "}";
+    }
 }

@@ -9,9 +9,9 @@ import com.bittercode.model.Book;
 public class SeePrint {
 
     public static void main(String[] args) {
-        printResponseCode();
+        //printResponseCode();
         printStoreException();
-        printBook();
+        //printBook();
     }
     
     
@@ -31,6 +31,8 @@ public class SeePrint {
         System.out.println(ResponseCode.getMessageByStatusCode(200)); // output: Optional[SUCCESS]
         System.out.println(ResponseCode.getMessageByStatusCode(199)); // output: Optional.empty
         
+        // test toString() method
+        System.out.println(ResponseCode.SUCCESS.toString());    // output: ResponseCode{type='SUCCESS', message='OK', code=200}
     }
     
     
