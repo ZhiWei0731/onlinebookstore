@@ -11,7 +11,7 @@ public class User implements Serializable {
     private String lastName;
     private Long phone;
     private String address;
-    private List<UserRole> roles;
+    private UserRole role;
 
     public String getEmailId() {
         return emailId;
@@ -61,14 +61,18 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    public List<UserRole> getRoles() {
-        return roles;
+    public UserRole getRoles() {
+        return role;
     }
 
-    public void setRoles(List<UserRole> roles) {
-        this.roles = roles;
+    public void setRole(UserRole roles) {
+        this.role = roles;
     }
 
+    public String toString() {
+        return "User{emailId=" + emailId + ", password=" + password + ", firstName=" + firstName + ", lastName="
+                + lastName + ", address=" + address + ", phone=" + phone  + ", role=" + role + "}";
+    }
 //    public static User retrieveFromHttpServletRequest(HttpServletRequest req) {
 //        User user = new User();
 //        String pWord = req.getParameter(UsersDBConstants.COLUMN_PASSWORD);

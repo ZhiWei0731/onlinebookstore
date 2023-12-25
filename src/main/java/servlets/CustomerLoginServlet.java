@@ -26,11 +26,10 @@ public class CustomerLoginServlet extends HttpServlet {
         String uName = req.getParameter(UsersDBConstants.COLUMN_USERNAME);
         String pWord = req.getParameter(UsersDBConstants.COLUMN_PASSWORD);
         User user = authService.login(UserRole.CUSTOMER, uName, pWord, req.getSession());
-
+        
         try {
-
             if (user != null) {
-
+                System.out.println(user.toString() + "\n");
                 RequestDispatcher rd = req.getRequestDispatcher("CustomerHome.html");
                 rd.include(req, res);
                 pw.println("    <div id=\"topmid\"><h1>Welcome to Online <br>Book Store</h1></div>\r\n"
@@ -40,9 +39,7 @@ public class CustomerLoginServlet extends HttpServlet {
                         + "            <td><p>Welcome "+user.getFirstName()+", Happy Learning !!</p></td>\r\n"
                         + "        </tr>\r\n"
                         + "    </table>");
-
             } else {
-
                 RequestDispatcher rd = req.getRequestDispatcher("CustomerLogin.html");
                 rd.include(req, res);
                 pw.println("<table class=\"tab\"><tr><td>Incorrect UserName or PassWord</td></tr></table>");

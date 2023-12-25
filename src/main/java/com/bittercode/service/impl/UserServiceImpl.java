@@ -38,11 +38,13 @@ public class UserServiceImpl implements UserService {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 user = new User();
-                user.setFirstName(rs.getString("firstName"));
-                user.setLastName(rs.getString("lastName"));
-                user.setPhone(rs.getLong("phone"));
-                user.setEmailId(email);
-                user.setPassword(password);
+                user.setEmailId(rs.getString(UsersDBConstants.COLUMN_MAILID));
+                user.setPassword(rs.getString(UsersDBConstants.COLUMN_PASSWORD));
+                user.setFirstName(rs.getString(UsersDBConstants.COLUMN_FIRSTNAME));
+                user.setLastName(rs.getString(UsersDBConstants.COLUMN_LASTNAME));
+                user.setAddress(rs.getString(UsersDBConstants.COLUMN_ADDRESS));
+                user.setPhone(rs.getLong(UsersDBConstants.COLUMN_PHONE));
+                user.setRole(role);
                 session.setAttribute(role.toString(), user.getEmailId());
             }
         } catch (SQLException e) {
@@ -68,11 +70,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String register(UserRole role, User user) throws StoreException {
-        String responseMessage = ResponseCode.FAILURE.name();
         Connection con = DBUtil.getConnection();
+        PreparedStatement ps;
+        String responseMessage = ResponseCode.FAILURE.name();
         try {
-            PreparedStatement ps = con.prepareStatement(registerUserQuery);
-            ps.setString(1, user.getEmailId());
+            ps = con.prepareStatement(registerUserQuery);
+            ps.setString(1, user.getEmailId()); // use emailId as username
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getFirstName());
             ps.setString(4, user.getLastName());

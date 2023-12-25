@@ -2,7 +2,8 @@ package print;
 
 import com.bittercode.constant.ResponseCode;
 import com.bittercode.model.StoreException;
-
+import com.bittercode.model.User;
+import com.bittercode.model.UserRole;
 import com.bittercode.model.Book;
 
 
@@ -10,8 +11,9 @@ public class SeePrint {
 
     public static void main(String[] args) {
         //printResponseCode();
-        printStoreException();
+        //printStoreException();
         //printBook();
+        printUser();
     }
     
     
@@ -55,7 +57,19 @@ public class SeePrint {
         System.out.println(book.toString()); 
     }  
     
-    
+    // com.bittercode.model.User
+    private static void printUser() {
+        System.out.println("\n# printUser()");
+        User user = new User();
+        user.setEmailId("admin@gmail.com");
+        user.setPassword("Admin");
+        user.setFirstName("Mr.");
+        user.setLastName("Admin");
+        user.setAddress("Haldia WB");
+        user.setPhone(Long.parseLong("9584552224521"));
+        user.setRole(UserRole.SELLER);
+        System.out.println(user.toString()); 
+    }
     
     // com.bittercode.model.StoreException 
     private static void printStoreException() {
@@ -64,6 +78,5 @@ public class SeePrint {
         System.out.println(se.toString());  // output: {errorCode=SUCCESS, errorMessage=OK, statusCode=200}
     }
     
- 
-    
+   
 }

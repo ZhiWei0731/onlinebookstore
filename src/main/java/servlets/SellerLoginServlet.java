@@ -25,11 +25,12 @@ public class SellerLoginServlet extends HttpServlet {
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
         String uName = req.getParameter(UsersDBConstants.COLUMN_USERNAME);
         String pWord = req.getParameter(UsersDBConstants.COLUMN_PASSWORD);
+        User user = userService.login(UserRole.SELLER, uName, pWord, req.getSession());
+        
         try {
-            User user = userService.login(UserRole.SELLER, uName, pWord, req.getSession());
             if (user != null) {
+                System.out.println(user.toString() + "\n");
                 RequestDispatcher rd = req.getRequestDispatcher("SellerHome.html");
-
                 rd.include(req, res);
                 pw.println("    <div id=\"topmid\"><h1>Welcome to Online <br>Book Store</h1></div>\r\n"
                         + "    <br>\r\n"
@@ -39,7 +40,6 @@ public class SellerLoginServlet extends HttpServlet {
                         + "        </tr>\r\n"
                         + "    </table>");
             } else {
-
                 RequestDispatcher rd = req.getRequestDispatcher("SellerLogin.html");
                 rd.include(req, res);
                 pw.println("<table class=\"tab\"><tr><td>Incorrect UserName or PassWord</td></tr></table>");
