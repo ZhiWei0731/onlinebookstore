@@ -42,7 +42,7 @@ public class SellerLoginServlet extends HttpServlet {
 
                 RequestDispatcher rd = req.getRequestDispatcher("SellerLogin.html");
                 rd.include(req, res);
-                pw.println("<div class=\"tab\">Incorrect UserName or PassWord</div>");
+                pw.println("<table class=\"tab\"><tr><td>Incorrect UserName or PassWord</td></tr></table>");
             }
 
         } catch (Exception e) {
