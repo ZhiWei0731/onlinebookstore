@@ -25,19 +25,14 @@ public class CustomerRegisterServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
 
-        String pWord = req.getParameter(UsersDBConstants.COLUMN_PASSWORD);
-        String fName = req.getParameter(UsersDBConstants.COLUMN_FIRSTNAME);
-        String lName = req.getParameter(UsersDBConstants.COLUMN_LASTNAME);
-        String addr = req.getParameter(UsersDBConstants.COLUMN_ADDRESS);
-        String phNo = req.getParameter(UsersDBConstants.COLUMN_PHONE);
-        String mailId = req.getParameter(UsersDBConstants.COLUMN_MAILID);
-        User user = new User();
-        user.setEmailId(mailId);
-        user.setFirstName(fName);
-        user.setLastName(lName);
-        user.setPassword(pWord);
-        user.setPhone(Long.parseLong(phNo));
-        user.setAddress(addr);
+        User user = new User(
+            req.getParameter(UsersDBConstants.COLUMN_MAILID),
+            req.getParameter(UsersDBConstants.COLUMN_PASSWORD),
+            req.getParameter(UsersDBConstants.COLUMN_FIRSTNAME),
+            req.getParameter(UsersDBConstants.COLUMN_LASTNAME),
+            Long.parseLong(req.getParameter(UsersDBConstants.COLUMN_PHONE)),
+            req.getParameter(UsersDBConstants.COLUMN_ADDRESS)
+        );
         try {
             String respCode = userService.register(UserRole.CUSTOMER, user);
             System.out.println(respCode);

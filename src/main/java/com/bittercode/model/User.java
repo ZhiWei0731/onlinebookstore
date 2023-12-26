@@ -13,11 +13,32 @@ public class User implements Serializable {
     private String address;
     private UserRole role;
 
+    public User() {
+        this(null, null, null, null, 
+            null, null, null);
+    }
+
+    public User(String emailId, String password, String firstName, 
+                String lastName, Long phone, String address, UserRole role) {
+        setEmailId(emailId);
+        setPassword(password);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setPhone(phone);
+        setAddress(address);
+        setRole(role);
+    }
+
+    public User(String emailId, String password, String firstName, 
+                String lastName, Long phone, String address) {
+        this(emailId, password, firstName, lastName, phone, address, null);
+    }
+
     public String getEmailId() {
         return emailId;
     }
 
-    public void setEmailId(String emailId) {
+    private void setEmailId(String emailId) {
         this.emailId = emailId;
     }
 
@@ -25,7 +46,7 @@ public class User implements Serializable {
         return password;
     }
 
-    public void setPassword(String password) {
+    private void setPassword(String password) {
         this.password = password;
     }
 
@@ -33,7 +54,7 @@ public class User implements Serializable {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    private void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -41,7 +62,7 @@ public class User implements Serializable {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    private void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -49,7 +70,7 @@ public class User implements Serializable {
         return phone;
     }
 
-    public void setPhone(Long phone) {
+    private void setPhone(Long phone) {
         this.phone = phone;
     }
 
@@ -57,7 +78,7 @@ public class User implements Serializable {
         return address;
     }
 
-    public void setAddress(String address) {
+    private void setAddress(String address) {
         this.address = address;
     }
 
@@ -65,7 +86,7 @@ public class User implements Serializable {
         return role;
     }
 
-    public void setRole(UserRole roles) {
+    private void setRole(UserRole roles) {
         this.role = roles;
     }
 

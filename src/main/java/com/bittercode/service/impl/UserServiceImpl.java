@@ -37,14 +37,15 @@ public class UserServiceImpl implements UserService {
             ps.setString(3, userType);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                user = new User();
-                user.setEmailId(rs.getString(UsersDBConstants.COLUMN_MAILID));
-                user.setPassword(rs.getString(UsersDBConstants.COLUMN_PASSWORD));
-                user.setFirstName(rs.getString(UsersDBConstants.COLUMN_FIRSTNAME));
-                user.setLastName(rs.getString(UsersDBConstants.COLUMN_LASTNAME));
-                user.setAddress(rs.getString(UsersDBConstants.COLUMN_ADDRESS));
-                user.setPhone(rs.getLong(UsersDBConstants.COLUMN_PHONE));
-                user.setRole(role);
+                user = new User(
+                    rs.getString(UsersDBConstants.COLUMN_MAILID),
+                    rs.getString(UsersDBConstants.COLUMN_PASSWORD),
+                    rs.getString(UsersDBConstants.COLUMN_FIRSTNAME),
+                    rs.getString(UsersDBConstants.COLUMN_LASTNAME),
+                    rs.getLong(UsersDBConstants.COLUMN_PHONE),
+                    rs.getString(UsersDBConstants.COLUMN_ADDRESS),
+                    role
+                );
                 session.setAttribute(role.toString(), user.getEmailId());
             }
         } catch (SQLException e) {
