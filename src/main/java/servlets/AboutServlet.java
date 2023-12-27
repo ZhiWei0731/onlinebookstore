@@ -12,7 +12,7 @@ import com.bittercode.model.UserRole;
 import com.bittercode.util.StoreUtil;
 
 import writer.Writer;
-import writer.AboutWriter;
+import writer.extend.AboutWriter;
 
 //Http Servlet extended class for showing the about information
 public class AboutServlet extends HttpServlet {

@@ -14,7 +14,7 @@ import com.bittercode.model.UserRole;
 import com.bittercode.service.UserService;
 import com.bittercode.service.impl.UserServiceImpl;
 
-import writer.SellerLoginWriter;
+import writer.extend.SellerLoginWriter;
 import writer.Writer;
 
 public class SellerLoginServlet extends HttpServlet {

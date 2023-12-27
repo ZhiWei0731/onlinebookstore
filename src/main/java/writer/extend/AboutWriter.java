@@ -1,25 +1,28 @@
-package writer;
+package writer.extend;
 
 import javax.servlet.http.HttpServletResponse;
 
 import com.bittercode.model.User;
+import writer.Writer;
 
-public class LogutWriter extends Writer{
-    public static String logutInfo = "<table class=\"tab\"><tr><td>Successfully logged out!</td></tr></table>";
+public class AboutWriter extends Writer {
+    public static String about = "<iframe src=\"https://flowcv.me/shashirajraja\" class=\"holds-the-iframe\"\r\n"
+                + "        title=\"My Personal Website\" width=\"100%\" height=\"100%\"></iframe>";
     public static String notLog = "<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>";
 
-    public LogutWriter(HttpServletResponse res) {
+
+    public AboutWriter(HttpServletResponse res) {
 		super(res);
 	}
 
     @Override
     public void writeSellerLog(){
-        getPrintWriter().println(logutInfo);
+        getPrintWriter().println(about);
     }
 
     @Override
     public void writeCustomerLog(){
-        getPrintWriter().println(logutInfo);
+        getPrintWriter().println(about);
     }
 
     @Override

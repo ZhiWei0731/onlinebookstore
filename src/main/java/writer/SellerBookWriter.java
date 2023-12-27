@@ -1,13 +1,13 @@
 package writer;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bittercode.constant.BookStoreConstants;
-import com.bittercode.model.User;
-import com.bittercode.model.UserRole;
+import com.bittercode.model.Book;
 
 public abstract class SellerBookWriter {
     private HttpServletRequest req;
@@ -24,7 +24,7 @@ public abstract class SellerBookWriter {
         try {
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
         this.pw = res.getWriter();
-        this.writeInitPage();
+        this.writeTopContent();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,43 +44,33 @@ public abstract class SellerBookWriter {
         pw.println("<script>document.getElementById('" + activeTab + "').classList.add(\"active\");</script>");
     }
 
-    public void write(UserRole userRole){
-        switch(userRole.name()){
-            case "SELLER":
-                writeSellerLog();
-                break;
-            case "CUSTOMER":
-                writeCustomerLog();
-                break;
-            case "NULL":
-                writeNotLog();
-                break;
-            default:
-                break;
-        }
+    public void writeNotLog(){
+        pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
     }
 
-    public void write(UserRole userRole, User user){
-        switch(userRole.name()){
-            case "SELLER":
-                writeSellerLog(user);
-                break;
-            case "CUSTOMER":
-                writeCustomerLog(user);
-                break;
-            case "NULL":
-                writeNotLog(user);
-                break;
-            default:
-                break;
-        }
+    public void write(){
+        writeTopContent();
+        writeBookContent();
+        writeBottomContent();
     }
 
-    public abstract void writeInitPage();
-    public abstract void writeCustomerLog();
-    public abstract void writeSellerLog();
-    public abstract void writeNotLog();
-    public abstract void writeCustomerLog(User user);
-    public abstract void writeSellerLog(User user);
-    public abstract void writeNotLog(User user);
+    public void write(Book book){
+        writeTopContent();
+        writeBookContent(book);
+        writeBottomContent();
+    }
+
+    public void write(List<Book> books){
+        writeTopContent();
+        writeBookContent(books);
+        writeBottomContent();
+    }
+
+    public abstract void writeTopContent();
+    public abstract void writeBookContent();
+    public abstract void writeBookContent(Book book);
+    public abstract void writeBookContent(List<Book> books);
+    public abstract void writeBottomContent();
+    public abstract void writeFaliOperation();
+    
 }

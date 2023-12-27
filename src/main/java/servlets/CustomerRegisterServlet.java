@@ -16,7 +16,7 @@ import com.bittercode.service.UserService;
 import com.bittercode.service.impl.UserServiceImpl;
 
 import writer.Writer;
-import writer.CustomerRegisterWriter;
+import writer.extend.CustomerRegisterWriter;
 
 public class CustomerRegisterServlet extends HttpServlet {
 

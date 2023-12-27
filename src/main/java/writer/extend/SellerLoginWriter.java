@@ -1,8 +1,10 @@
-package writer;
+package writer.extend;
 
 import javax.servlet.http.HttpServletResponse;
 
 import com.bittercode.model.User;
+import writer.Writer;
+
 
 public class SellerLoginWriter extends Writer {
     

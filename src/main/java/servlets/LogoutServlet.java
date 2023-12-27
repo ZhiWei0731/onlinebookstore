@@ -13,7 +13,7 @@ import com.bittercode.service.UserService;
 import com.bittercode.service.impl.UserServiceImpl;
 
 import writer.Writer;
-import writer.LogutWriter;
+import writer.extend.LogutWriter;
 
 public class LogoutServlet extends HttpServlet {
 
