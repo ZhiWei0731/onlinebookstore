@@ -23,7 +23,6 @@ public class CartServlet extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         CustomerBookWriter writer = new CartWriter(req, res);
 
-        // Check if Customer is logged In
         if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
             RequestDispatcher rd = req.getRequestDispatcher("CustomerLogin.html");
             rd.include(req, res);
