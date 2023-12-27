@@ -60,10 +60,6 @@ public class UpdateBookWriter extends SellerBookWriter {
         }
     }
 
-    public void writeBookContent(Book book){
-        this.showUpdateBookForm(book);
-    }
-
     public void writeBookContent(List<Book> books){
         return;
     }

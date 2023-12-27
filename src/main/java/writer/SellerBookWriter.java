@@ -54,12 +54,6 @@ public abstract class SellerBookWriter {
         writeBottomContent();
     }
 
-    public void write(Book book){
-        writeTopContent();
-        writeBookContent(book);
-        writeBottomContent();
-    }
-
     public void write(List<Book> books){
         writeTopContent();
         writeBookContent(books);
@@ -68,7 +62,6 @@ public abstract class SellerBookWriter {
 
     public abstract void writeTopContent();
     public abstract void writeBookContent();
-    public abstract void writeBookContent(Book book);
     public abstract void writeBookContent(List<Book> books);
     public abstract void writeBottomContent();
     public abstract void writeFaliOperation();

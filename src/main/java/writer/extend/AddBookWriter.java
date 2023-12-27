@@ -56,10 +56,6 @@ public class AddBookWriter extends SellerBookWriter {
         }
     }
 
-    public void writeBookContent(Book book){
-        return;
-    }
-
     public void writeBookContent(List<Book> books){
         return;
     }

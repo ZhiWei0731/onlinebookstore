@@ -38,10 +38,6 @@ public class StoreBookWriter extends SellerBookWriter{
         return;
     }
 
-    public void writeBookContent(Book book){
-        return;
-    }
-
     public void writeBookContent(List<Book> books){
         if (books == null || books.size() == 0) {
             this.writeNoAvailableBook();
