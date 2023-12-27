@@ -14,12 +14,13 @@ import com.bittercode.constant.ResponseCode;
 import com.bittercode.constant.db.BooksDBConstants;
 import com.bittercode.model.Book;
 import com.bittercode.model.UserRole;
-import com.bittercode.service.BookService;
-import com.bittercode.service.impl.BookServiceImpl;
+import com.bittercode.service.SellerBookService;
+import com.bittercode.service.impl.SellerBookServiceImpl;
 import com.bittercode.util.StoreUtil;
 
 public class UpdateBookServlet extends HttpServlet {
-    BookService bookService = new BookServiceImpl();
+    
+    SellerBookService bookService = new SellerBookServiceImpl();
 
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         PrintWriter pw = res.getWriter();

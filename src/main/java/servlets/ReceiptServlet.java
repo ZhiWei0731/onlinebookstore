@@ -13,12 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.bittercode.constant.BookStoreConstants;
 import com.bittercode.model.Book;
 import com.bittercode.model.UserRole;
-import com.bittercode.service.BookService;
-import com.bittercode.service.impl.BookServiceImpl;
+import com.bittercode.service.CustomerBookService;
+import com.bittercode.service.impl.CustomerBookServiceImpl;
 import com.bittercode.util.StoreUtil;
 
 public class ReceiptServlet extends HttpServlet {
-    BookService bookService = new BookServiceImpl();
+    
+    CustomerBookService bookService = new CustomerBookServiceImpl();
 
     //NOT_IN_USED
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
