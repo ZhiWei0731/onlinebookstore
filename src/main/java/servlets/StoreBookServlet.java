@@ -1,7 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bittercode.model.Book;
 import com.bittercode.model.UserRole;
 import com.bittercode.service.SellerBookService;
 import com.bittercode.service.impl.SellerBookServiceImpl;
@@ -33,21 +31,12 @@ public class StoreBookServlet extends HttpServlet {
             writer.writeNotLog();
             return;
         }
-        try {
-            // Add/Remove Item from the cart if requested
-            // store the comma separated bookIds of cart in the session
-            RequestDispatcher rd = req.getRequestDispatcher("SellerHome.html");
-            rd.include(req, res);
 
-            // Set the active tab as cart
-            writer.setActiveTab("storebooks");
-
-            // Read the books from the database with the respective bookIds
-            List<Book> books = bookService.getAllBooks();
-            writer.write(books);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // Add/Remove Item from the cart if requested
+        // store the comma separated bookIds of cart in the session
+        RequestDispatcher rd = req.getRequestDispatcher("SellerHome.html");
+        rd.include(req, res);
+        writer.setActiveTab("storebooks");
+        writer.write();
     }
 }

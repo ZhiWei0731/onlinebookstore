@@ -1,7 +1,6 @@
 package writer.extend;
 
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -58,10 +57,6 @@ public class UpdateBookWriter extends SellerBookWriter {
             e.printStackTrace();
             this.writeFaliOperation();
         }
-    }
-
-    public void writeBookContent(List<Book> books){
-        return;
     }
 
     public void writeBottomContent(){

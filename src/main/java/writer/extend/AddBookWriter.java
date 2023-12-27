@@ -1,7 +1,6 @@
 package writer.extend;
 
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,10 +53,6 @@ public class AddBookWriter extends SellerBookWriter {
             e.printStackTrace();
             this.writeFaliOperation();
         }
-    }
-
-    public void writeBookContent(List<Book> books){
-        return;
     }
 
     public void writeBottomContent(){

@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bittercode.model.Book;
+import com.bittercode.service.SellerBookService;
+import com.bittercode.service.impl.SellerBookServiceImpl;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -12,6 +14,7 @@ import writer.SellerBookWriter;
 
 public class StoreBookWriter extends SellerBookWriter{
     PrintWriter pw = getPrintWriter();
+    SellerBookService bookService = new SellerBookServiceImpl();
 
     public StoreBookWriter(HttpServletRequest req, HttpServletResponse res) {
         super(req, res);
@@ -35,15 +38,17 @@ public class StoreBookWriter extends SellerBookWriter{
     }
     
     public void writeBookContent(){
-        return;
-    }
-
-    public void writeBookContent(List<Book> books){
-        if (books == null || books.size() == 0) {
-            this.writeNoAvailableBook();
-        }
-        for (Book book : books) {
-            pw.println(getRowData(book));
+        try {
+            // Read the books from the database with the respective bookIds
+            List<Book> books = bookService.getAllBooks();
+            if (books == null || books.size() == 0) {
+                this.writeNoAvailableBook();
+            }
+            for (Book book : books) {
+                pw.println(getRowData(book));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,13 +1,11 @@
 package writer.extend;
 
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bittercode.constant.ResponseCode;
-import com.bittercode.model.Book;
 import com.bittercode.service.SellerBookService;
 import com.bittercode.service.impl.SellerBookServiceImpl;
 
@@ -48,10 +46,6 @@ public class RemoveBookWriter extends SellerBookWriter {
             e.printStackTrace();
             this.writeFaliOperation();
         }
-    }
-
-    public void writeBookContent(List<Book> books){
-        return;
     }
 
     public void writeBottomContent(){
