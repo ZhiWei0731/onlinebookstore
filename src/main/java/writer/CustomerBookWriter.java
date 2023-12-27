@@ -41,6 +41,10 @@ public abstract class CustomerBookWriter {
         pw.println("<script>document.getElementById('" + activeTab + "').classList.add(\"active\");</script>");
     }
 
+    public void writeNotLog(){
+        pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
+    }
+    
     public void write(){
         writeTopContent();
         writeBookContent();
