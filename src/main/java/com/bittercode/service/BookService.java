@@ -1,10 +1,5 @@
 package com.bittercode.service;
 
-import java.util.List;
-
-import com.bittercode.model.Book;
-import com.bittercode.model.StoreException;
-
 public interface BookService {
 
     // public Book getBookById(String bookId) throws StoreException;

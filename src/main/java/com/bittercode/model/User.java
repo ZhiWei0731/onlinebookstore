@@ -15,7 +15,7 @@ public class User implements Serializable {
 
     public User() {
         this(null, null, null, null, 
-            null, null, null);
+            null, null, UserRole.NULL);
     }
 
     public User(String emailId, String password, String firstName, 
@@ -31,7 +31,7 @@ public class User implements Serializable {
 
     public User(String emailId, String password, String firstName, 
                 String lastName, Long phone, String address) {
-        this(emailId, password, firstName, lastName, phone, address, null);
+        this(emailId, password, firstName, lastName, phone, address, UserRole.NULL);
     }
 
     public String getEmailId() {
