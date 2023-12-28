@@ -9,9 +9,9 @@ import com.bittercode.constant.ResponseCode;
 import com.bittercode.service.SellerBookService;
 import com.bittercode.service.impl.SellerBookServiceImpl;
 
-import writer.SellerBookWriter;
+import writer.BookWriter;
 
-public class RemoveBookWriter extends SellerBookWriter {
+public class RemoveBookWriter extends BookWriter {
     HttpServletRequest req = getRequest();
     PrintWriter pw = getPrintWriter();
     SellerBookService bookService = new SellerBookServiceImpl();

@@ -11,9 +11,9 @@ import com.bittercode.model.Book;
 import com.bittercode.service.SellerBookService;
 import com.bittercode.service.impl.SellerBookServiceImpl;
 
-import writer.SellerBookWriter;
+import writer.BookWriter;
 
-public class AddBookWriter extends SellerBookWriter {
+public class AddBookWriter extends BookWriter {
     HttpServletRequest req = getRequest();
     PrintWriter pw = getPrintWriter();
     SellerBookService bookService = new SellerBookServiceImpl();

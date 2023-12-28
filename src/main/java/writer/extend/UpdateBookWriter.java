@@ -11,10 +11,10 @@ import com.bittercode.model.Book;
 import com.bittercode.service.SellerBookService;
 import com.bittercode.service.impl.SellerBookServiceImpl;
 
-import writer.SellerBookWriter;
+import writer.BookWriter;
 
 
-public class UpdateBookWriter extends SellerBookWriter {
+public class UpdateBookWriter extends BookWriter {
     HttpServletRequest req = getRequest();
     PrintWriter pw = getPrintWriter();
     SellerBookService bookService = new SellerBookServiceImpl();

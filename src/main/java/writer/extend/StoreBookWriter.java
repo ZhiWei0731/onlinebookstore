@@ -10,9 +10,9 @@ import com.bittercode.service.impl.SellerBookServiceImpl;
 import java.io.PrintWriter;
 import java.util.List;
 
-import writer.SellerBookWriter;
+import writer.BookWriter;
 
-public class StoreBookWriter extends SellerBookWriter{
+public class StoreBookWriter extends BookWriter{
     PrintWriter pw = getPrintWriter();
     SellerBookService bookService = new SellerBookServiceImpl();
 

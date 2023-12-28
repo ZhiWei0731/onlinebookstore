@@ -13,7 +13,7 @@ import com.bittercode.service.SellerBookService;
 import com.bittercode.service.impl.SellerBookServiceImpl;
 import com.bittercode.util.StoreUtil;
 
-import writer.SellerBookWriter;
+import writer.BookWriter;
 import writer.extend.RemoveBookWriter;
 
 public class RemoveBookServlet extends HttpServlet {
@@ -21,7 +21,7 @@ public class RemoveBookServlet extends HttpServlet {
     SellerBookService bookService = new SellerBookServiceImpl();
 
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        SellerBookWriter writer = new RemoveBookWriter(req, res);
+        BookWriter writer = new RemoveBookWriter(req, res);
         
         if (!StoreUtil.isLoggedIn(UserRole.SELLER, req.getSession())) {
             RequestDispatcher rd = req.getRequestDispatcher("SellerLogin.html");
