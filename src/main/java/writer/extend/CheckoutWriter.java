@@ -5,9 +5,9 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import writer.CustomerBookWriter;
+import writer.BookWriter;
 
-public class CheckoutWriter extends CustomerBookWriter {
+public class CheckoutWriter extends BookWriter {
     HttpServletRequest req = getRequest();
     PrintWriter pw = getPrintWriter();
 

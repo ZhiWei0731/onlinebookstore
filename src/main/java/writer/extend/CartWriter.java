@@ -14,9 +14,9 @@ import com.bittercode.service.CustomerBookService;
 import com.bittercode.service.impl.CustomerBookServiceImpl;
 import com.bittercode.util.StoreUtil;
 
-import writer.CustomerBookWriter;
+import writer.BookWriter;
 
-public class CartWriter extends CustomerBookWriter {
+public class CartWriter extends BookWriter {
     HttpServletRequest req = getRequest();
     PrintWriter pw = getPrintWriter();
     CustomerBookService bookService = new CustomerBookServiceImpl();

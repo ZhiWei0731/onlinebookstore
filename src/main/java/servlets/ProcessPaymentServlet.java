@@ -13,7 +13,7 @@ import com.bittercode.service.CustomerBookService;
 import com.bittercode.service.impl.CustomerBookServiceImpl;
 import com.bittercode.util.StoreUtil;
 
-import writer.CustomerBookWriter;
+import writer.BookWriter;
 import writer.extend.ProcessPaymentWriter;
 
 public class ProcessPaymentServlet extends HttpServlet {
@@ -21,7 +21,7 @@ public class ProcessPaymentServlet extends HttpServlet {
     CustomerBookService bookService = new CustomerBookServiceImpl();
 
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        CustomerBookWriter writer = new ProcessPaymentWriter(req, res);
+        BookWriter writer = new ProcessPaymentWriter(req, res);
 
         if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
             RequestDispatcher rd = req.getRequestDispatcher("CustomerLogin.html");
